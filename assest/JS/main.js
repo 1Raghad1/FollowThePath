@@ -1,68 +1,76 @@
+
 let gameBord = document.querySelector(".bored")
-let row = 3;
-let col = 3;
-let bord = [3][3];
-
-
+var row = 3;
+var col = 3;
+var score = 0;
+var count = 0;
+var numOfColred=3;
+var setOfSol;
 
 function creatEmptyBored() {
+    gameBord.innerHTML = ''
     for (let i = 0; i < row; i++) {
         for (j = 0; j < col; j++) {
-            // bord[i][j]=""+i+j;
-            // console.log(bord[i][j])
+
             let gridItem = document.createElement('div');
             gridItem.setAttribute("data-id", "" + i + j);
             gridItem.setAttribute("id", "" + i + j);
             gridItem.setAttribute('class', 'gridItem');
+            if(row==4){
+                gridItem.style.width='100px';
+                gridItem.style.height='100px';
+            }
+            if(row==5){
+                gridItem.style.width='70px';
+                gridItem.style.height='70px';
 
+            }
             gameBord.appendChild(gridItem)
         }
     }
     return colorBored();
 }
 function colorBored() {
-    let coloredRow = random();
-    let coloredCol = random();
-    console.log(coloredRow)
-    console.log(coloredCol)
+    let colored = random();
     let setOfCells = []
     let cell = []
-    let time = 1000;
-    let i = 0
-    for (let i = 0; i < coloredRow.length; i++) {
-        cell[i] = document.getElementById("" + coloredRow[i] + coloredCol[i] + "")
-        console.log(cell[i])
+    let time = 500;
 
+    for (let i = 0; i < colored.length; i++) {
+        cell[i] = document.getElementById(colored[i])
         time += 400;
         setTimeout(function () { id = setInterval(colorSeq(cell[i]), time); }, time);
 
-        cell[i].classList.add('animated', 'white')
+        cell[i].classList.add('animated', 'fadeIn')
         setOfCells.push(cell[i].getAttribute('data-id'))
     }
 
     function colorSeq(cell) {
-        cell.style.backgroundColor = 'green'
+        cell.style.backgroundColor = '#2d2c40'
     }
 
 
 
-    return setOfCells
+    return checkforSolution(setOfCells)
 }
 function random() {
     {
 
         let arr2 = []
-        let obj = [0, 1, 2]
+        let obj = [[],[],[],[],[]];
+        for(let i=0;i<row;i++){
+            for(let j=0;j<col;j++)
+            obj[i][j]=""+i+j
+        }
 
-        while (arr2.length != 3) {
-            let index = Math.floor(Math.random() * 3)
 
-            if (!arr2.includes(obj[index])) {
-                arr2.push(obj[index])
+        while (arr2.length != numOfColred) {
+            let i = Math.floor(Math.random() * row)
+            let j=Math.floor(Math.random() * row)
+           if (!arr2.includes(obj[i][j])) {
+                arr2.push(obj[i][j])
             }
         }
-        console.log(arr2)
-
         return arr2
     }
 }
@@ -70,8 +78,7 @@ function random() {
 function checkforSolution(sol) {
     let allCell = document.getElementsByClassName('gridItem');
     let subSet = [];
-    let count = 0;
-
+   
     for (let i = 0; i < allCell.length; i++) {
 
         if (sol.includes(allCell[i].getAttribute('data-id'))) {
@@ -79,33 +86,54 @@ function checkforSolution(sol) {
             allCell[i].addEventListener('click', function (e) {
                 subSet.push(allCell[i].getAttribute('data-id'))
                 count++;
-                if (count === sol.length) {
+                if (subSet.length === sol.length) {
 
                     check(subSet);
 
                 }
 
             })
-            } else {
-                allCell[i].addEventListener('click', function (e) {
-                    allCell[i].style.opacity = '0.4'
-                    allCell[i].classList.add('animated', 'fadIn')
-                });
+        } else {
+            allCell[i].addEventListener('click', function (e) {
+                allCell[i].style.opacity = '0.4'
+                allCell[i].classList.add('animated', 'shake')
+                allCell[i].classList.add('animated', 'faster')
+            });
 
         }
         function check(subSet) {
-            console.log(subSet)
-            console.log(sol)
+
             sol = sol.toString();
             subSet = subSet.toString();
 
-
             if (subSet === sol) {
-                console.log('win')
+                score++;
+                
+var scor = document.getElementsByTagName('span')
+scor[0].innerHTML=score;
 
-            }
+if(score%3==0||score==1||score>6&&score<=10){
+
+    numOfColred++;
+    
+    }else{
+
+        if(row<5){
+
+        row++;
+        col++;
+        }
+        
+    }
+     creatEmptyBored();
+
+            }else{
+            creatEmptyBored()
+              
+           }
+        }
         }
     }
-}
-let setOfSol = creatEmptyBored();
-checkforSolution(setOfSol)
+
+creatEmptyBored();
+
