@@ -15,11 +15,11 @@ animate.css for some animations
 Started with the HTML then Js finally with the CSS.
 
 ## Problem-Solving Strategy
-Mostly W3School, StackOverflow was a great refence for syntax errors, logical errors was a bit tricky but with code tracing and trying to find the right logic cods can run.
+Mostly W3School, StackOverflow was a great reference for syntax errors, logical errors was a bit tricky but with code tracing and trying to find the right logic codes can run.
 
 ## Unsolved problems
-Design a final level.
+Design a last level.
 
 # Acknowledgments
-For the start button i used a code from this artical: https://www.fabriziovanmarciano.com/button-styles/
+For the start button i used a code from this article: https://www.fabriziovanmarciano.com/button-styles/
 
