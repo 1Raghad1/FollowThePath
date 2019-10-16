@@ -152,7 +152,7 @@ function checkforSolution(sol) {
                 score++
                 level++
                 displayScore(score);
-                if (score < 5) {
+                if (score < 10) {
                     if (level % 2 != 0 || level == 1 || row == 5) {
 
                         numOfColred++;
