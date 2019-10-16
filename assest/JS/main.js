@@ -141,16 +141,15 @@ function checkforSolution(sol) {
                 score++
                 level++
                 displayScore(score);
-                if (score <= 10) {
-                    if (level % 2 == 0 || level == 1) {
-
+                if (score < 10) {
+                    if (level % 2 != 0 || level == 1||row==5) {
+                        
                         numOfColred++;
                        creatEmptyBored();
 
                     } else {
 
                         if (row < 5) {
-
                             row++;
                             col++;
                             creatEmptyBored();
