@@ -140,7 +140,7 @@ function checkforSolution(sol) {
                 score++
                 displayScore(score);
                 if (score <= 10) {
-                    if (score % 2 != 0 || score == 1) {
+                    if (score % 2 == 0 || score == 1) {
 
                         numOfColred++;
                        creatEmptyBored();
@@ -164,7 +164,7 @@ function checkforSolution(sol) {
                         'You reached 10 Scores!!',
                         'success'
                     )
-                    //resetGame()
+                    resetGame()
 
                 }
             } else {
