@@ -83,3 +83,17 @@ text-align: center;
 font-family: Palatino;
 }
 
+@media only screen and (max-width: 600px) {
+    .gridItem {
+        height: 70px;
+        width: 70px;
+        border: 1px solid;
+        margin: 10px;
+        text-align: center;
+        border-radius: 30%;
+        background-color:whitesmoke;
+        color:whitesmoke;
+        text-align: center;
+    }
+  }
+

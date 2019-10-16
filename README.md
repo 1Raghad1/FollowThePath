@@ -9,7 +9,8 @@ It's a memory game basically a grid ,that colors some of its element in a sequen
 HTML
 CSS
 JavaScript for DOM manipulation
-animate.css for some animations 
+animate.css for animations 
+sweetalert2 for the alert design 
 ```
 # Planning and Development Process 
 Started with the HTML then Js finally with the CSS.
@@ -18,8 +19,15 @@ Started with the HTML then Js finally with the CSS.
 Mostly W3School, StackOverflow was a great reference for syntax errors, logical errors was a bit tricky but with code tracing and trying to find the right logic codes can run.
 
 ## Unsolved problems
-Design a last level.
+Give the user a choice to pick how hard the level can be.
 
 # Acknowledgments
-For the start button i used a code from this article: https://www.fabriziovanmarciano.com/button-styles/
+- Thank you GA for giving us this chance.
+- A big thanks to Atheer for helping through the project &hearts;
+# Refrence
+- For the start button i used a code from this article: https://www.fabriziovanmarciano.com/button-styles/
+- For the alert design: https://sweetalert2.github.io/
+- For the animation effect: https://github.com/daneden/animate.css
+
+
 

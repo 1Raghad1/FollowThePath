@@ -7,6 +7,8 @@ var count = 0;
 var numOfColred = 3;
 var setOfSol;
 
+
+
 function creatEmptyBored() {
 
     gameBord.innerHTML = ''
@@ -21,7 +23,7 @@ function creatEmptyBored() {
             gridItem.setAttribute('class', 'gridItem');
 
             if (row == 4) {
-
+                gridItem.style.
                 gridItem.style.width = '100px';
                 gridItem.style.height = '100px';
             }
@@ -34,6 +36,7 @@ function creatEmptyBored() {
             gameBord.appendChild(gridItem)
         }
     }
+
     return colorBored();
 }
 function colorBored() {
@@ -42,12 +45,13 @@ function colorBored() {
     let cell = []
     let time = 500;
 
+
     for (let i = 0; i < colored.length; i++) {
 
         cell[i] = document.getElementById(colored[i])
         time += 800;
         setTimeout(function () { id = setInterval(colorSeq(cell[i]), time); }, time);
-      
+
         setOfCells.push(cell[i].getAttribute('data-id'))
     }
 
@@ -94,22 +98,22 @@ function checkforSolution(sol) {
 
         if (sol.includes(allCell[i].getAttribute('data-id'))) {
             allCell[i].addEventListener('click', function (e) {
-            allCell[i].classList.add('animated', 'fadeIn')
-            allCell[i].classList.add('animated', 'fast')
-            if(subSet.includes(allCell[i].getAttribute('data-id'))){
-                Swal.fire({
-                    type: 'error',
-                    title: 'Oops...',
-                    text: 'You Can Not Choose The SAME Square Twice!!',
-               
-                  })
-                  creatEmptyBored();
-            }else{
-                subSet.push(allCell[i].getAttribute('data-id'))
-            }
-            
-               
-               
+                allCell[i].classList.add('animated', 'fadeIn')
+                allCell[i].classList.add('animated', 'fast')
+                if (subSet.includes(allCell[i].getAttribute('data-id'))) {
+                    Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'You Can Not Choose The SAME Square Twice!!',
+
+                    })
+                    creatEmptyBored();
+                } else {
+                    subSet.push(allCell[i].getAttribute('data-id'))
+                }
+
+
+
                 if (subSet.length === sol.length) {
 
                     check(subSet);
@@ -135,11 +139,11 @@ function checkforSolution(sol) {
             if (subSet === sol) {
                 score++
                 displayScore(score);
-                if (score <= 2) {
-                    if (score % 3 == 0 || score == 1) {
+                if (score <= 10) {
+                    if (score % 2 != 0 || score == 1) {
 
                         numOfColred++;
-                        creatEmptyBored();
+                       creatEmptyBored();
 
                     } else {
 
@@ -159,7 +163,8 @@ function checkforSolution(sol) {
                         'Good job!',
                         'You reached 10 Scores!!',
                         'success'
-                      )
+                    )
+                    //resetGame()
 
                 }
             } else {
@@ -183,20 +188,20 @@ again.addEventListener('click', function () {
     creatEmptyBored();
 })
 
-let reset = document.getElementById('reset');
-reset.addEventListener('click', function () {
+ let reset = document.getElementById('reset');
+ reset.addEventListener('click', resetGame)
+
+function displayScore(score) {
+    var scor = document.getElementsByTagName('span')
+    scor[0].innerHTML = score;
+}
+function resetGame() {
     score = 0;
     displayScore(score);
     row = 3;
     col = 3;
     numOfColred = 3;
     creatEmptyBored();
-
-})
-
-function displayScore(score) {
-    var scor = document.getElementsByTagName('span')
-    scor[0].innerHTML = score;
 }
 
 creatEmptyBored();
