@@ -1,5 +1,6 @@
-body{
-    background-color:  '#A19CA9'
+body,footer{
+    background-color:  '#D9D7DD';
+  
 }
 
 .bored {
@@ -21,6 +22,12 @@ body{
     text-align: center;
     border-radius: 30%;
     background-color:whitesmoke;
+    color:whitesmoke;
+    font-size: 50px;
+    text-align: center;
+}
+.gridItem:hover{
+    opacity: 0.8;
 }
 
 .colored {
@@ -73,5 +80,6 @@ border-color: #BBBBBB;
 font-size: 30px;
 color:#2d2c40;
 text-align: center;
-
+font-family: Palatino;
 }
+
