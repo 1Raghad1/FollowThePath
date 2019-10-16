@@ -19,7 +19,9 @@ Started with the HTML then Js finally with the CSS.
 Mostly W3School, StackOverflow was a great reference for syntax errors, logical errors was a bit tricky but with code tracing and trying to find the right logic codes can run.
 
 ## Unsolved problems
-Give the user a choice to pick how hard the level can be.
+- Give the player a choice to pick how hard the level can be.
+- The player cant start cliking unless the grid hide the colored sequence first.
+
 
 # Acknowledgments
 - Thank you GA for giving us this chance.

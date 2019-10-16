@@ -1,6 +1,21 @@
-body,footer{
+* {
+    box-sizing: border-box;
+  }
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+    width:100%;
+}
+
+header {
+    background:#2d2c40;
+    margin:0;
+    padding:0;
+    position:relative;
+}
+body{
     background-color:  '#D9D7DD';
-  
 }
 
 .bored {
@@ -61,10 +76,9 @@ text-decoration: none;
 text-transform: uppercase;
 font-family: 'Roboto', sans-serif;
 font-weight: 400;
-color: rgb(4, 71, 133);
+color: #2d2c40;
 text-align: center;
 transition: all 0.15s;
-
 }
 
 .button1:hover {
@@ -76,13 +90,30 @@ border-color: #DDDDDD;
 color: #BBBBBB;
 border-color: #BBBBBB;
 }
+#start{
+   
+    height: 20px;
+    box-sizing:content-box;
+    font-size: 25px;
+    align-content: flex-start;
+    padding:10px;
+  
+}
 #score{
 font-size: 30px;
 color:#2d2c40;
 text-align: center;
 font-family: Palatino;
 }
-
+footer{
+    display:clear;
+    background:#2d2c40;
+    margin:0;
+    padding:0;
+    height:20px;
+    position:relative;
+    color:whitesmoke;
+}
 @media only screen and (max-width: 600px) {
     .gridItem {
         height: 70px;

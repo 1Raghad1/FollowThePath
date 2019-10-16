@@ -3,7 +3,6 @@ let gameBord = document.querySelector(".bored")
 var row = 3;
 var col = 3;
 var score = 0;
-var count = 0;
 var numOfColred = 3;
 var level = 0;
 var setOfSol;
@@ -24,7 +23,7 @@ function creatEmptyBored() {
             gridItem.setAttribute('class', 'gridItem');
 
             if (row == 4) {
-              
+
                 gridItem.style.width = '100px';
                 gridItem.style.height = '100px';
             }
@@ -44,13 +43,15 @@ function colorBored() {
     let colored = random();
     let setOfCells = []
     let cell = []
-    let time = 500;
+    let time = 400;
+
 
 
     for (let i = 0; i < colored.length; i++) {
 
         cell[i] = document.getElementById(colored[i])
         time += 800;
+
         setTimeout(function () { id = setInterval(colorSeq(cell[i]), time); }, time);
 
         setOfCells.push(cell[i].getAttribute('data-id'))
@@ -59,6 +60,13 @@ function colorBored() {
     function colorSeq(cell) {
 
         cell.style.backgroundColor = '#2d2c40'
+    }
+    for (let i = 0; i < colored.length; i++)
+
+        setTimeout(function () { id = setInterval(colorSeqBack(cell[i]), 1000); }, time + 300);
+
+    function colorSeqBack(cell) {
+        cell.style.backgroundColor = 'whitesmoke'
     }
 
     return checkforSolution(setOfCells)
@@ -101,6 +109,8 @@ function checkforSolution(sol) {
             allCell[i].addEventListener('click', function (e) {
                 allCell[i].classList.add('animated', 'fadeIn')
                 allCell[i].classList.add('animated', 'fast')
+                allCell[i].style.backgroundColor = '#2d2c40'
+
                 if (subSet.includes(allCell[i].getAttribute('data-id'))) {
                     Swal.fire({
                         type: 'error',
@@ -110,6 +120,7 @@ function checkforSolution(sol) {
                     })
                     creatEmptyBored();
                 } else {
+
                     subSet.push(allCell[i].getAttribute('data-id'))
                 }
 
@@ -117,7 +128,7 @@ function checkforSolution(sol) {
 
                 if (subSet.length === sol.length) {
 
-                    check(subSet);
+                    setTimeout(function () { check(subSet) }, 200)
 
                 }
 
@@ -141,11 +152,11 @@ function checkforSolution(sol) {
                 score++
                 level++
                 displayScore(score);
-                if (score < 10) {
-                    if (level % 2 != 0 || level == 1||row==5) {
-                        
+                if (score < 5) {
+                    if (level % 2 != 0 || level == 1 || row == 5) {
+
                         numOfColred++;
-                       creatEmptyBored();
+                        creatEmptyBored();
 
                     } else {
 
@@ -189,8 +200,8 @@ again.addEventListener('click', function () {
     creatEmptyBored();
 })
 
- let reset = document.getElementById('reset');
- reset.addEventListener('click', resetGame)
+let reset = document.getElementById('reset');
+reset.addEventListener('click', resetGame)
 
 function displayScore(score) {
     var scor = document.getElementsByTagName('span')
