@@ -5,6 +5,7 @@ var col = 3;
 var score = 0;
 var count = 0;
 var numOfColred = 3;
+var level = 0;
 var setOfSol;
 
 
@@ -23,7 +24,7 @@ function creatEmptyBored() {
             gridItem.setAttribute('class', 'gridItem');
 
             if (row == 4) {
-                gridItem.style.
+              
                 gridItem.style.width = '100px';
                 gridItem.style.height = '100px';
             }
@@ -138,9 +139,10 @@ function checkforSolution(sol) {
 
             if (subSet === sol) {
                 score++
+                level++
                 displayScore(score);
                 if (score <= 10) {
-                    if (score % 2 == 0 || score == 1) {
+                    if (level % 2 == 0 || level == 1) {
 
                         numOfColred++;
                        creatEmptyBored();
